@@ -16,8 +16,6 @@ sidebar = ttk.Frame(root, width=200, height=500)
 sidebar.pack(expand=False, fill='y', side='left', anchor='nw')
 
 
-
-
 # Create buttons and add them to the sidebar frame
 expense_button = ttk.Button(sidebar, text="Expense")
 expense_button.pack(fill='x')
@@ -29,14 +27,15 @@ accounts_button = ttk.Button(sidebar, text="Accounts")
 accounts_button.pack(fill='x')
 
 # Main content area
-main_content = ttk.Frame(root, width=600, height=500)
+main_content_bg = "#d3d3d3"  # Light gray color for the main content area
+main_content = tk.Frame(root, width=600, height=500, bg=main_content_bg)
 main_content.pack(expand=True, fill='both', side='right')
 
 labels_text = ['Product', 'Price', 'Category', 'Importance', 'Account Name']
 entries = {}
 
 for i, text in enumerate(labels_text):
-    label = tk.Label(main_content, text=text)
+    label = tk.Label(main_content, text=text, bg=main_content_bg, fg="black")
     label.grid(row=i, column=0, sticky='e', padx=5, pady=5)
 
     entry = tk.Entry(main_content)
